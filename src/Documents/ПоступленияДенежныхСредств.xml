@@ -28,7 +28,7 @@
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Поступления ДС</v8:content>
+					<v8:content>Поступления денежных средств</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
@@ -361,11 +361,11 @@
 					</Attribute>
 					<Attribute uuid="c1b5e688-1b38-4a16-a74e-432aaeceeebf">
 						<Properties>
-							<Name>Сумма</Name>
+							<Name>СуммаПлан</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сумма</v8:content>
+									<v8:content>Сумма (план)</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -407,7 +407,7 @@
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сумма факт</v8:content>
+									<v8:content>Сумма (факт)</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>

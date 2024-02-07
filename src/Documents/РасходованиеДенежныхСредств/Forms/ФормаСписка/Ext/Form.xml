@@ -74,7 +74,7 @@
 					<ExtendedTooltip name="МесяцРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="СуммаДокумента" id="25">
-					<DataPath>Список.СуммаДокумента</DataPath>
+					<DataPath>~Список.СуммаДокумента</DataPath>
 					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="27"/>
 				</LabelField>

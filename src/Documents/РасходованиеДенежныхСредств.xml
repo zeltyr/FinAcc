@@ -72,7 +72,7 @@
 			<ObjectPresentation>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Расход ДС</v8:content>
+					<v8:content>Расходование денежных средств</v8:content>
 				</v8:item>
 			</ObjectPresentation>
 			<ExtendedObjectPresentation/>
@@ -129,7 +129,7 @@
 			</Attribute>
 			<Attribute uuid="3ea14ed4-421e-4077-8940-f7ee0d78ec9e">
 				<Properties>
-					<Name>СуммаДокумента</Name>
+					<Name>СуммаДокументаПлан</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -389,11 +389,11 @@
 					</Attribute>
 					<Attribute uuid="dbe3a6ff-3b2f-40f1-b847-3b5e36183de7">
 						<Properties>
-							<Name>Сумма</Name>
+							<Name>СуммаПлан</Name>
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сумма</v8:content>
+									<v8:content>Сумма (план)</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>
@@ -435,7 +435,7 @@
 							<Synonym>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Сумма факт</v8:content>
+									<v8:content>Сумма (факт)</v8:content>
 								</v8:item>
 							</Synonym>
 							<Comment/>

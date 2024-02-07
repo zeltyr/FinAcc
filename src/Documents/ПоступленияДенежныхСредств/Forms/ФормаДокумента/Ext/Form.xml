@@ -50,6 +50,9 @@
 							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 							<ContextMenu name="МесяцКонтекстноеМеню" id="8"/>
 							<ExtendedTooltip name="МесяцРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="OnChange">МесяцПриИзменении</Event>
+							</Events>
 						</InputField>
 						<LabelField name="СуммаДокументаПлан" id="10">
 							<DataPath>Объект.СуммаДокументаПлан</DataPath>
@@ -148,23 +151,6 @@
 					</ToolTip>
 					<ExtendedTooltip name="СтраницаПоступленияРасширеннаяПодсказка" id="59"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаСуммыДокумента" id="60">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа суммы документа</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа суммы документа</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаСуммыДокументаРасширеннаяПодсказка" id="61"/>
-						</UsualGroup>
 						<Table name="Поступления" id="16">
 							<Representation>List</Representation>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -175,11 +161,33 @@
 							<ContextMenu name="ПоступленияКонтекстноеМеню" id="17"/>
 							<AutoCommandBar name="ПоступленияКоманднаяПанель" id="18">
 								<ChildItems>
-									<Button name="ПоступленияСкорректироватьДаты" id="49">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СкорректироватьДаты</CommandName>
-										<ExtendedTooltip name="ПоступленияСкорректироватьДатыРасширеннаяПодсказка" id="50"/>
-									</Button>
+									<Popup name="Служебные" id="73">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Служебные</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Служебные</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>StdPicture.LoadReportSettings</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Representation>Picture</Representation>
+										<ExtendedTooltip name="СлужебныеРасширеннаяПодсказка" id="74"/>
+										<ChildItems>
+											<Button name="ПоступленияСкорректироватьДаты" id="49">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СкорректироватьДаты</CommandName>
+												<ExtendedTooltip name="ПоступленияСкорректироватьДатыРасширеннаяПодсказка" id="50"/>
+											</Button>
+										</ChildItems>
+									</Popup>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ПоступленияРасширеннаяПодсказка" id="19"/>
@@ -229,7 +237,7 @@
 									<ExtendedTooltip name="ПоступленияСтатьяДвиженияДенежныхСредствРасширеннаяПодсказка" id="37"/>
 								</InputField>
 								<InputField name="ПоступленияСумма" id="38">
-									<DataPath>Объект.Поступления.Сумма</DataPath>
+									<DataPath>Объект.Поступления.СуммаПлан</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 									<ContextMenu name="ПоступленияСуммаКонтекстноеМеню" id="39"/>
@@ -335,7 +343,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Дельта план факт</v8:content>
+					<v8:content>Дельта (план-факт)</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
