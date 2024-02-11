@@ -244,6 +244,7 @@
 			<Subsystem>УчетФинансов</Subsystem>
 			<CommonModule>ЗаполнениеДокументовВызовСервера</CommonModule>
 			<CommonModule>ЗаполнениеДокументовСервер</CommonModule>
+			<WSReference>WSdrebedengi</WSReference>
 			<Constant>РасходыНаПроживаниеВДень</Constant>
 			<Catalog>СтатьиДвиженияДенежныхСредств</Catalog>
 			<Document>ПоступленияДенежныхСредств</Document>
@@ -253,6 +254,7 @@
 			<Enum>ВидыРасходованийДенежныхСредств</Enum>
 			<Report>УчетФинансов</Report>
 			<DataProcessor>ЗаполнитьДаты</DataProcessor>
+			<DataProcessor>ИнтеграцияСДребеньги</DataProcessor>
 			<InformationRegister>Календарь</InformationRegister>
 			<AccumulationRegister>УчетФинансовОбороты</AccumulationRegister>
 		</ChildObjects>

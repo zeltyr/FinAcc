@@ -93,6 +93,10 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Описание</dataPath>
+			<field>Описание</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	Календарь.Дата КАК Дата,
@@ -112,6 +116,11 @@
 			ТОГДА НЕОПРЕДЕЛЕНО
 		ИНАЧЕ УчетФинансовОборотыОбороты.СтатьяДвиженияДенежныхСредств
 	КОНЕЦ КАК СтатьяДвиженияДенежныхСредств,
+	ВЫБОР
+		КОГДА УчетФинансовОборотыОбороты.Описание ЕСТЬ NULL
+			ТОГДА ""
+		ИНАЧЕ УчетФинансовОборотыОбороты.Описание
+	КОНЕЦ КАК Описание,
 	ВЫБОР
 		КОГДА УчетФинансовОборотыОбороты.СтатьяДвиженияДенежныхСредств ЕСТЬ NULL
 			ТОГДА ЛОЖЬ
@@ -160,12 +169,12 @@
 		</title>
 	</calculatedField>
 	<calculatedField>
-		<dataPath>Дельта</dataPath>
+		<dataPath>ДельтаПриход</dataPath>
 		<expression>0</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>Дельта</v8:content>
+				<v8:content>Дельта (приход)</v8:content>
 			</v8:item>
 		</title>
 	</calculatedField>
@@ -176,6 +185,16 @@
 			<v8:item>
 				<v8:lang>ru</v8:lang>
 				<v8:content>Конечный остаток (факт)</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ДельтаРасход</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дельта (расход)</v8:content>
 			</v8:item>
 		</title>
 	</calculatedField>
@@ -196,10 +215,6 @@
 		<expression>Сумма(СуммаРасходФакт)</expression>
 	</totalField>
 	<totalField>
-		<dataPath>Дельта</dataPath>
-		<expression>Сумма(СуммаРасходПлан) - Сумма(СуммаРасходФакт)</expression>
-	</totalField>
-	<totalField>
 		<dataPath>КонечныйОстатокПлан</dataPath>
 		<expression>ВычислитьВыражение("СУММА(СуммаПриходПлан)",,,"Первая", "Текущая") - ВычислитьВыражение("СУММА(СуммаРасходПлан)",,,"Первая", "Текущая")</expression>
 		<group>Период</group>
@@ -207,6 +222,14 @@
 	<totalField>
 		<dataPath>КонечныйОстатокФакт</dataPath>
 		<expression>ВычислитьВыражение("СУММА(СуммаПриходФакт)",,,"Первая", "Текущая") - ВычислитьВыражение("СУММА(СуммаРасходФакт)",,,"Первая", "Текущая")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДельтаПриход</dataPath>
+		<expression>Сумма(СуммаПриходФакт) - Сумма(СуммаПриходПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДельтаРасход</dataPath>
+		<expression>Сумма(СуммаРасходПлан) - Сумма(СуммаРасходФакт)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -287,6 +310,9 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СтатьяДвиженияДенежныхСредств</dcsset:field>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Описание</dcsset:field>
+				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
 						<v8:item>
@@ -311,6 +337,9 @@
 								<v8:content>Факт</v8:content>
 							</v8:item>
 						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДельтаПриход</dcsset:field>
 					</dcsset:item>
 					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
@@ -340,7 +369,7 @@
 						</dcsset:lwsTitle>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
-						<dcsset:field>Дельта</dcsset:field>
+						<dcsset:field>ДельтаРасход</dcsset:field>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
 						<dcsset:field>КонечныйОстатокПлан</dcsset:field>
@@ -364,12 +393,12 @@
 				<dcsset:item>
 					<dcsset:selection>
 						<dcsset:item>
-							<dcsset:field>Дельта</dcsset:field>
+							<dcsset:field>ДельтаРасход</dcsset:field>
 						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:filter>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">Дельта</dcsset:left>
+							<dcsset:left xsi:type="dcscor:Field">ДельтаРасход</dcsset:left>
 							<dcsset:comparisonType>Greater</dcsset:comparisonType>
 							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 						</dcsset:item>
@@ -393,12 +422,12 @@
 				<dcsset:item>
 					<dcsset:selection>
 						<dcsset:item>
-							<dcsset:field>Дельта</dcsset:field>
+							<dcsset:field>ДельтаРасход</dcsset:field>
 						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:filter>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">Дельта</dcsset:left>
+							<dcsset:left xsi:type="dcscor:Field">ДельтаРасход</dcsset:left>
 							<dcsset:comparisonType>Less</dcsset:comparisonType>
 							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 						</dcsset:item>
@@ -500,6 +529,41 @@
 						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 							<dcscor:parameter>ЦветФона</dcscor:parameter>
 							<dcscor:value xsi:type="v8ui:Color">web:LightSalmon</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+					<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Описание</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#C0C0C0</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="style:SmallTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
 						</dcscor:item>
 					</dcsset:appearance>
 					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
