@@ -18,7 +18,7 @@
 			<Content>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВидыДвиженияДенежныхСредств</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.УчетФинансовОбороты</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">Report.УчетФинансов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ДвижениеДенежныхСредств</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ЗаполнитьДаты</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Enum.ВидыПоступленийДенежныхСредств</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ИнтеграцияСДребеньги</xr:Item>

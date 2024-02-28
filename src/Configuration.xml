@@ -252,7 +252,7 @@
 			<Enum>ВидыДвиженияДенежныхСредств</Enum>
 			<Enum>ВидыПоступленийДенежныхСредств</Enum>
 			<Enum>ВидыРасходованийДенежныхСредств</Enum>
-			<Report>УчетФинансов</Report>
+			<Report>ДвижениеДенежныхСредств</Report>
 			<DataProcessor>ЗаполнитьДаты</DataProcessor>
 			<DataProcessor>ИнтеграцияСДребеньги</DataProcessor>
 			<InformationRegister>Календарь</InformationRegister>

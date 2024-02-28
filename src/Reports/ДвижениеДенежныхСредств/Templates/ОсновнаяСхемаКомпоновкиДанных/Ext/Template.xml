@@ -97,6 +97,30 @@
 			<dataPath>Описание</dataPath>
 			<field>Описание</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МесяцТрат</dataPath>
+			<field>МесяцТрат</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц трат</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ='MMMM yyyy'</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	Календарь.Дата КАК Дата,
@@ -111,6 +135,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
 	Календарь.Дата КАК Период,
+	НАЧАЛОПЕРИОДА(Календарь.Дата, МЕСЯЦ) КАК МесяцТрат,
 	ВЫБОР
 		КОГДА УчетФинансовОборотыОбороты.СтатьяДвиженияДенежныхСредств ЕСТЬ NULL
 			ТОГДА НЕОПРЕДЕЛЕНО
@@ -227,7 +252,6 @@
 	<totalField>
 		<dataPath>КонечныйОстатокПлан</dataPath>
 		<expression>ВычислитьВыражение("СУММА(СуммаПриходПлан)",,,"Первая", "Текущая") - ВычислитьВыражение("СУММА(СуммаРасходПлан)",,,"Первая", "Текущая")</expression>
-		<group>Период</group>
 	</totalField>
 	<totalField>
 		<dataPath>КонечныйОстатокФакт</dataPath>
@@ -314,8 +338,13 @@
 		<expression>НачалоПериода(ТекущаяДатаСеанса(),"День")</expression>
 	</parameter>
 	<settingsVariant>
-		<dcsset:name>Основной</dcsset:name>
-		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:name>ДвижениеДенежныхСредств</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Движение денежных средств</v8:content>
+			</v8:item>
+		</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -725,6 +754,23 @@
 					<dcscor:value xsi:type="xs:string">Античный</dcscor:value>
 				</dcscor:item>
 			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>МесяцТрат</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
