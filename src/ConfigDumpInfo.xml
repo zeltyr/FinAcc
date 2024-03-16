@@ -58,8 +58,8 @@
 			<Metadata name="Document.РасходованиеДенежныхСредств.TabularSection.Расходы" id="d4d9eeae-c290-4803-87cc-f5aa0090a336"/>
 			<Metadata name="Document.РасходованиеДенежныхСредств.TabularSection.Расходы.Attribute.СуммаПлан" id="dbe3a6ff-3b2f-40f1-b847-3b5e36183de7"/>
 		</Metadata>
-		<Metadata name="Document.РасходованиеДенежныхСредств.Form.ФормаДокумента" id="b853dfb4-5a97-46a4-b2a6-dfffbe876c77" configVersion="5780314a5333d24cad46ac473998b4fe00000000"/>
-		<Metadata name="Document.РасходованиеДенежныхСредств.Form.ФормаДокумента.Form" id="b853dfb4-5a97-46a4-b2a6-dfffbe876c77.0" configVersion="8f3e7e95b7dc8d40a9a5b1095f0715bd00000000"/>
+		<Metadata name="Document.РасходованиеДенежныхСредств.Form.ФормаДокумента" id="b853dfb4-5a97-46a4-b2a6-dfffbe876c77" configVersion="36142da325ae294fb4adca6430e529a100000000"/>
+		<Metadata name="Document.РасходованиеДенежныхСредств.Form.ФормаДокумента.Form" id="b853dfb4-5a97-46a4-b2a6-dfffbe876c77.0" configVersion="bd7f7b4b88117b4a8f00c77d26f94ef600000000"/>
 		<Metadata name="Document.РасходованиеДенежныхСредств.Form.ФормаСписка" id="4ba6574b-27a5-4b41-968b-4cf0bd39df7b" configVersion="cf4f919b9150d84ca975814db9469b1100000000"/>
 		<Metadata name="Document.РасходованиеДенежныхСредств.Form.ФормаСписка.Form" id="4ba6574b-27a5-4b41-968b-4cf0bd39df7b.0" configVersion="938b49223eb5734d9ccf0a4d4249390f00000000"/>
 		<Metadata name="Document.РасходованиеДенежныхСредств.ObjectModule" id="8bf68a08-289e-44d0-8a27-6846168b9a20.0" configVersion="08e7e82d3cbb4f49acfee42b2fa071fc00000000"/>

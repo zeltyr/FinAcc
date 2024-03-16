@@ -119,8 +119,20 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="Группа1" id="57">
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="58"/>
+		<Pages name="ГруппаРасходы" id="57">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа расходы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа расходы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаРасходыРасширеннаяПодсказка" id="58"/>
 			<ChildItems>
 				<Page name="СтраницаРасходы" id="59">
 					<Title>
@@ -147,11 +159,33 @@
 							<ContextMenu name="РасходыКонтекстноеМеню" id="17"/>
 							<AutoCommandBar name="РасходыКоманднаяПанель" id="18">
 								<ChildItems>
-									<Button name="РасходыЗаполнитьЕжедневнымиТратами" id="49">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ЗаполнитьЕжедневнымиТратами</CommandName>
-										<ExtendedTooltip name="РасходыЗаполнитьЕжедневнымиТратамиРасширеннаяПодсказка" id="50"/>
-									</Button>
+									<Popup name="РасходыМенюЗаполнить" id="72">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Заполнить...</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Расходы меню заполнить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="РасходыМенюЗаполнитьРасширеннаяПодсказка" id="73"/>
+										<ChildItems>
+											<Button name="РасходыЗаполнитьЕжедневнымиТратами" id="49">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗаполнитьЕжедневнымиТратами</CommandName>
+												<ExtendedTooltip name="РасходыЗаполнитьЕжедневнымиТратамиРасширеннаяПодсказка" id="50"/>
+											</Button>
+											<Button name="РасходыЗаполнитьВыделенныеСтроки" id="74">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗаполнитьВыделенныеСтроки</CommandName>
+												<ExtendedTooltip name="РасходыЗаполнитьВыделенныеСтрокиРасширеннаяПодсказка" id="75"/>
+											</Button>
+										</ChildItems>
+									</Popup>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="РасходыРасширеннаяПодсказка" id="19"/>
@@ -308,6 +342,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаполнитьЕжедневнымиТратами</Action>
+		</Command>
+		<Command name="ЗаполнитьВыделенныеСтроки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить выделенные строки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить выделенные строки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьВыделенныеСтроки</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
